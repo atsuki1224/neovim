@@ -1,3 +1,15 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
+# deinによるプラグイン管理
+
+[[plugins]]
 repo = 'scrooloose/nerdtree'
+# NERDTreeの使用
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+# 現在のモードを視覚的に分かりやすく表示する
+
+[[plugins]]
+repo = 'jistr/vim-nerdtree-tabs'
+# NERDTreeを簡単に開く

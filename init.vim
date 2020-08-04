@@ -70,3 +70,5 @@ set background=dark                     " ダークバージョンのテーマ�
 
 " map (noremapはmapに上書きされないコマンド)
 " -------------------------------------------------------------------------------------------------------
+map <Space>n <plug>NERDTreeTabsToggle<CR>     " NERDTreeを簡単に開く
+
