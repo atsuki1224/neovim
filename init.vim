@@ -6,6 +6,8 @@ if &compatible
   set nocompatible
 endif
 
+" プラグイン管理のdeinの設定
+" -----------------------------------------------------------------------------------------------------
 " dein.vimインストール時に指定したディレクトリをセット
 let s:dein_dir = expand('~/.cache/dein')
 
@@ -52,6 +54,7 @@ colorscheme NeoSolarized                " カラースキームの設定
 " set
 " -----------------------------------------------------------------------------------------------------
 set encoding=utf-8
+set helplang=ja                         " vim helpの日本語化 プラグインが必要
 set t_Co=256                            " 256色を有効化
 " set nowrap                            " ターミナルの右端で文字を折り返さない
 set number                              " 行番号表示
@@ -160,3 +163,11 @@ endif
 inoremap {<Enter> {} <Left><CR><ESC><S-o>
 inoremap [<Enter> [] <Left><CR><ESC><S-o>
 inoremap (<Enter> () <Left><CR><ESC><S-o>
+
+" Gitの変更を左端に表示するプラグイン 便利だが詳しい使い方調査必要
+" nmap <silent> <C-g><C-n> <Plug>GitGutterNextHunk
+" nmap <silent> <C-g><C-p> <Plug>GitGutterPrevHunk
+
+" expand_region_expandプラグイン：選択範囲をvコマンドで拡張する
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)

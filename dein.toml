@@ -1,15 +1,50 @@
+# deinによるプラグイン管理
 [[plugins]]
 repo = 'Shougo/dein.vim'
-# deinによるプラグイン管理
 
+# NERDTreeの使用
 [[plugins]]
 repo = 'scrooloose/nerdtree'
-# NERDTreeの使用
 
-[[plugins]]
-repo = 'itchyny/lightline.vim'
-# 現在のモードを視覚的に分かりやすく表示する
-
+# NERDTreeを簡単に開く
 [[plugins]]
 repo = 'jistr/vim-nerdtree-tabs'
-# NERDTreeを簡単に開く
+
+# 現在のモードを視覚的に分かりやすく表示する
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+
+# fzf
+[[plugins]]
+repo = 'junegunn/fzf'
+build_on = '''
+./install -all
+'''
+
+# fzf
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+
+# markdownのプレビュー拡張
+[[plugins]]
+repo = 'previm/previm'
+
+# vim helpの日本語化
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+
+# Gitの差分を表示する
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+
+# タブ補完の強化
+[[plugins]]
+repo = 'ervandew/supertab'
+
+# 選択範囲を拡張する
+[[plugins]]
+repo = 'terryma/vim-expand-region'
+
+# ウィンドウの幅を変更しやすくする
+[[plugins]]
+repo = 'simeji/winresizer'
