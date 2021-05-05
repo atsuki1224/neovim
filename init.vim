@@ -47,12 +47,13 @@ endif
 " colorscheme
 " -----------------------------------------------------------------------------------------------------
 colorscheme NeoSolarized                " カラースキームの設定
+"colorscheme onedark                " カラースキームの設定
 
 " set
 " -----------------------------------------------------------------------------------------------------
 set encoding=utf-8
 set t_Co=256                            " 256色を有効化
-set nowrap                              " ターミナルの右端で文字を折り返さない
+" set nowrap                              " ターミナルの右端で文字を折り返さない
 set number                              " 行番号表示
 set splitbelow                          " 水平分割時に下に表示
 set splitright                          " 縦分割時を右に表示
@@ -93,7 +94,10 @@ set mouse=a                             " マウスの入力を受け付ける
 set history=10000                       " コマンドラインの履歴表示数
 set visualbell t_vb=                    "ビープ音すべてを無効にする
 set noerrorbells                        "エラーメッセージの表示時にビープを鳴らさない
+set fileencodings=utf-8                 "ファイルの文字コード設定
+set fileformats=unix,dos,mac            "フィアルフォーマット設定
 
+let mapleader = "\<Space>"              "リーダーキーをスペースに設定
 " 全角スペースを可視化する
 augroup highlightIdegraphicSpace
   autocmd!
@@ -106,7 +110,6 @@ syntax on
 " シンタックスハイライトの現在の色を変更しない
 " syntax enable
 
-" map (noremapはmapに上書きされないコマンド)
 " -------------------------------------------------------------------------------------------------------
 map <Space>n <plug>NERDTreeTabsToggle<CR>     " NERDTreeを簡単に開く
 
@@ -117,3 +120,29 @@ imap [ []<left>
 imap ( ()<left>
 imap { {}<left>
 imap < <><left>
+
+" markdown
+autocmd BufRead,BufNewFile *.md set filetype=markdown
+" <C-p>でブラウザでプレビューできるようにする
+nnoremap <silent> <C-p> :PrevimOpen<CR>
+" 自動で折り畳まれないようにする
+let g:vim_markdown_folding_disabled=1
+let g:previm_enable_realtime = 1
+
+" vim起動時に自動でNERDTreeを開く
+autocmd vimenter * NERDTree
+autocmd TabNew * call timer_start(0, { -> execute('NERDTree')})
+" vimを閉じる時にNERDTreeも自動で閉じる
+autocmd bufenter * if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree()) | q | endif
+
+inoremap <C-g> <Esc>
+inoremap <TAB> <C-n>
+inoremap ; :
+
+" タブの追加
+noremap  <Leader><C-t> :tabnew<Enter>
+" タブを水平高校に分割
+nnoremap <Leader>vs    :vsplit<Enter>
+" タブを垂直方向に分割
+nnoremap <Leader>s     :split<Enter>
+
