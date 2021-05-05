@@ -1,4 +1,4 @@
-" default
+" vimの設定
 " -----------------------------------------------------------------------------------------------------
 
 " 互換性や便利な機能を使えるようにするおまじない
@@ -53,7 +53,7 @@ colorscheme NeoSolarized                " カラースキームの設定
 " -----------------------------------------------------------------------------------------------------
 set encoding=utf-8
 set t_Co=256                            " 256色を有効化
-" set nowrap                              " ターミナルの右端で文字を折り返さない
+" set nowrap                            " ターミナルの右端で文字を折り返さない
 set number                              " 行番号表示
 set splitbelow                          " 水平分割時に下に表示
 set splitright                          " 縦分割時を右に表示
@@ -75,7 +75,8 @@ set hlsearch                            " 検索結果ハイライト
 set ignorecase                          " 検索パターンで大文字、小文字を区別しない
 set incsearch                           " 検索コマンド使用時にインクリメンタルサーチする
 set smartcase                           " 小文字で検索した際には大文字、小文字を区別しない。大文字検索時は区別する
-set laststatus=2                        " 最下ウィンドウにステータスを表示する
+set laststatus=2                        " ステータスラインを表示する
+set statusline=%{F}                     " ステータスラインにフルパスを表示
 set nobackup                            " ファイル保存時にバックアップファイルを作らない
 set noswapfile                          " ファイル編集中にスワップファイルを作らない
 set wrapscan                            " 最後尾まで検索を終えたら次の検索で先頭に移る
@@ -121,6 +122,8 @@ imap ( ()<left>
 imap { {}<left>
 imap < <><left>
 
+" scala
+autocmd BufRead,BufNewFile *.sbt set filetype=scala
 " markdown
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 " <C-p>でブラウザでプレビューできるようにする
@@ -146,3 +149,14 @@ nnoremap <Leader>vs    :vsplit<Enter>
 " タブを垂直方向に分割
 nnoremap <Leader>s     :split<Enter>
 
+" 入力時にマルスカーソルの形を変更
+if has('vim_starting')
+  let &t_SI .= "\e[6 q"
+  let &t_EI .= "\e[2 q"
+  let &t_SR .= "\e[4 q"
+endif
+
+" 言語にかかわらずカッコの閉じタグとインデントを揃える
+inoremap {<Enter> {} <Left><CR><ESC><S-o>
+inoremap [<Enter> [] <Left><CR><ESC><S-o>
+inoremap (<Enter> () <Left><CR><ESC><S-o>
