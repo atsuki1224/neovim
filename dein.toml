@@ -46,5 +46,6 @@ repo = 'ervandew/supertab'
 repo = 'terryma/vim-expand-region'
 
 # ウィンドウの幅を変更しやすくする
+# Ctrl + E でモード起動 hjklで幅変更
 [[plugins]]
 repo = 'simeji/winresizer'

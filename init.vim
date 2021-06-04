@@ -63,7 +63,7 @@ set splitright                          " 縦分割時を右に表示
 set noequalalways                       " 分割時に自動調整を無効化
 set wildmenu                            " コマンドモードの補完
 set hls                                 " 検索した文字をハイライトする
-set clipboard+=unnamed,unnamedplus      " Vimの無名レジスタとシステムのクリップボードを連携(文字列のリスト) 
+set clipboard+=unnamed,unnamedplus      " Vimの無名レジスタとシステムのクリップボードを連携(文字列のリスト)
 set ruler                               " カーソルの位置表示
 set cursorline                          " カーソルハイライト
 set expandtab                           " tabを複数のspaceに置き換え
