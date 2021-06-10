@@ -100,6 +100,8 @@ set visualbell t_vb=                    "ビープ音すべてを無効にする
 set noerrorbells                        "エラーメッセージの表示時にビープを鳴らさない
 set fileencodings=utf-8                 "ファイルの文字コード設定
 set fileformats=unix,dos,mac            "フィアルフォーマット設定
+set spell                               " スペルチェックを実行
+set spelllang=en,cjk                    " スペルチェックで日本語を除外する
 
 let mapleader = "\<Space>"              "リーダーキーをスペースに設定
 " 全角スペースを可視化する
